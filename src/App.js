@@ -23,7 +23,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <h1 className="App">GEOTRYBER</h1>
+        <h1>GEOTRYBER</h1>
         <BrowserRouter>
           <Switch>
             <Route

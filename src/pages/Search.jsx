@@ -23,19 +23,19 @@ export default class Search extends Component {
   shouldComponentUpdate(_nextProps, nextState) {
     const { findedCountries, querySearch } = this.state;
     if (nextState.findedCountries.length !== findedCountries.length && nextState.querySearch !== querySearch) {
-      console.log('SHOULD FALSE')
       return false;
     }
-    console.log('SHOULD TRUE')
     return true;
+  }
+
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value })
   }
 
   render() {
     return (
       <section>
-        <input name="querySearch" onChange={ ({ target: { value, name } }) => {
-          this.setState({ [name]: value })
-        } }/>
+        <input name="querySearch" onChange={this}/>
         { this.state.findedCountries.map((c) => <h1>{c.name.common}</h1>) }
       </section>
     )
