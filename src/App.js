@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Home from './pages/Home';
+import Search from './pages/Search';
 
 class App extends React.Component {
   render() {
@@ -9,7 +10,7 @@ class App extends React.Component {
         <h1 className="App">
           GEOTRYBER
         </h1>
-        <Home />
+        <Search />
       </>
     );
   }
