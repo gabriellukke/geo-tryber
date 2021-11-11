@@ -16,7 +16,8 @@ class App extends React.Component {
 
   fetchCountries = () => {
     fetch('https://restcountries.com/v3.1/all')
-      .then((allCountries) => this.setState({ loading: false, allCountries }));
+      .then((data) => data.json())
+      .then((allCountries) => this.setState({ allCountries }));
   };
 
   render() {
