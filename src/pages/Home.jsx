@@ -2,9 +2,7 @@ import React, { Component } from 'react'
 import CountryCard from '../components/ CountryCard';
 
 export default class Home extends Component {
-  componentDidMount() {
-    this.props.fetchCountries();
-  }
+  componentDidMount() {}
 
   render() {
     const { countries } = this.props;

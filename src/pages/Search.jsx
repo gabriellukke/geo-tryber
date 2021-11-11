@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import CountryCard from '../components/ CountryCard';
 
 export default class Search extends Component {
   constructor() {
@@ -11,32 +12,29 @@ export default class Search extends Component {
     }
   }
 
-  componentDidUpdate(_prevProps, prevState) {
-    const { querySearch } = this.state;
-    if (prevState.querySearch !== querySearch) {
-      fetch(`https://restcountries.com/v3.1/name/${querySearch}`)
-        .then((data) => data.json())
-        .then((findedCountries) => this.setState({ findedCountries }));
-    }
-  }
+  componentDidUpdate(_prevProps, _prevState) {}
 
-  shouldComponentUpdate(_nextProps, nextState) {
-    const { findedCountries, querySearch } = this.state;
-    if (nextState.findedCountries.length !== findedCountries.length && nextState.querySearch !== querySearch) {
-      return false;
-    }
-    return true;
-  }
+  shouldComponentUpdate(_nextProps, nextState) {}
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
   }
 
   render() {
+    const { findedCountries } = this.state;
     return (
       <section>
-        <input name="querySearch" onChange={this}/>
-        { this.state.findedCountries.map((c) => <h1>{c.name.common}</h1>) }
+        <input name="querySearch" onChange={() => {}}/>
+        <section className="cards-list-container">
+          { findedCountries.length > 0 && findedCountries.map((country) => (
+            <CountryCard
+              name={ country.name.common }
+              capital={ country.capital }
+              flagUrl={ country.flags.svg }
+              code={ country.cca3 }
+            />
+          ))}
+        </section>
       </section>
     )
   }

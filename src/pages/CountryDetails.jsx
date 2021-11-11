@@ -12,7 +12,7 @@ export default class CountryDetails extends Component {
   render() {
     return (
       <section>
-        
+        Details
       </section>
     )
   }
