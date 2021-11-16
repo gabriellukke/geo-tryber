@@ -2,10 +2,13 @@ import React, { Component } from 'react'
 import CountryCard from '../components/ CountryCard';
 
 export default class Home extends Component {
-  componentDidMount() {}
+  componentDidMount() {
+    const { fetchApi } = this.props;
+    fetchApi();
+  }
 
   render() {
-    const { countries } = this.props;
+    const { allCountries: countries } = this.props;
     return (
       <main>
         <h2>All Countries</h2>
@@ -17,7 +20,7 @@ export default class Home extends Component {
               flagUrl={ country.flags.svg }
               code={ country.cca3 }
             />
-          ))}
+          )) }
         </section>
       </main>
     )
